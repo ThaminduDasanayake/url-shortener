@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple URL Shortener</title>
+  </head>
+  <body>
+    <h1>URL Shortener</h1>
+    <form method="POST" action="{{url_for('index')}}">
+      <input
+        type="url"
+        name="original_url"
+        placeholder="Enter the long URL"
+        required
+      />
+      <button type="submit">Shorten</button>
+    </form>
+    {% if shortened_url %}
+    <p>
+      Shortened URL:
+      <a target="_blank" href="{{ shortened_url }}">{{ shortened_url }}</a>
+    </p>
+    {% endif %}
+  </body>
+</html>
